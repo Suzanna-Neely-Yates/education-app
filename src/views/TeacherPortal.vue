@@ -1,20 +1,15 @@
 <template>
-  <div> HOME 
-    <Survey />
+  <div class="teacherportal">
+    <h1>This the teacher portal page</h1>
     <button v-on:click="logout">Log Out</button>
   </div>
 </template>
 
 <script>
-import Survey from "../components/Survey";
 import firebase from "firebase";
 
 export default {
-  name: "Home",
-
-  components: {
-    Survey,
-  },
+  name: "TeacherPortal",
 
   methods: {
     logout() {

@@ -1,23 +1,23 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="primary" dark height="70">
       <div class="d-flex align-center">
         <v-img
-          alt="Vuetify Logo"
+          alt="Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="https://photography156792358.files.wordpress.com/2021/06/logo.png?resize=438%2C438"
           transition="scale-transition"
-          width="40"
+          width="60"
         />
 
         <v-img
           alt="Vuetify Name"
           class="shrink mt-1 hidden-sm-and-down"
           contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
+          min-width="60"
+          src="src/assets/logo.png"
+          width="60"
         />
       </div>
 
@@ -31,7 +31,7 @@
       </v-btn>
     </v-app-bar>
 
-    <v-main>
+    <v-main style="background-color: powderblue">
       <router-view />
     </v-main>
   </v-app>
