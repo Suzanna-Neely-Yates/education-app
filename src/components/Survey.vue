@@ -14,10 +14,17 @@
           <h2 class="display-2 font-weight-bold mb-3">{{ survey.title }}</h2>
 
           <div class="ma-5" v-for="question in questions" :key="question">
-            <div v-if="question.survey_id == survey.key">
-              <div><Question :question="question" /><br /></div>
+            <div v-if="question.survey_id == survey.id">
+              <div>
+                <Question
+                  ref="question"
+                  :question="question"
+                  :surveyId="survey.id"
+                /><br />
+              </div>
             </div>
           </div>
+          <v-btn @click="submit(survey.id)">Submit</v-btn>
         </div>
       </v-col>
     </v-row>
@@ -48,7 +55,6 @@ export default {
     };
   },
   created() {
-    console.log("created", typeof surveyMap);
     this.getSurveys();
     this.getQuestions();
   },
@@ -60,14 +66,12 @@ export default {
           querySnapshot.forEach((docu) => {
             this.getQuestions(docu.id);
             let survey = docu.data();
-            survey.key = docu.id;
+            survey.id = docu.id;
             this.surveys.push(survey);
           });
         });
     },
     getQuestions(key) {
-      console.log("hi", key);
-
       const questions = [];
       db.collection("questions")
         .where("survey_id", "==", parseInt(key))
@@ -75,10 +79,17 @@ export default {
         .then((querySnapshot) => {
           querySnapshot.forEach((docu) => {
             let question = docu.data();
+            question.id = docu.id;
             this.questions.push(question);
           });
         });
       return questions;
+    },
+    submit(surveyId) {
+      const refs = this.$refs.question;
+      refs.forEach((ref) => {
+        if (surveyId == ref.surveyId) ref.submitResponse();
+      });
     },
   },
 };
