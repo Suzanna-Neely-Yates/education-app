@@ -6,6 +6,7 @@ import SignUp from "../views/SignUp.vue";
 import Login from "../views/Login.vue";
 import TeacherPortal from "../views/TeacherPortal.vue";
 import StudentPortal from "../views/StudentPortal.vue";
+import CreateSurvey from "../views/CreateSurvey.vue";
 import firebase from "firebase";
 
 Vue.use(VueRouter);
@@ -32,12 +33,12 @@ const routes = [
   {
     path: "/signup",
     name: "Sign Up",
-    component: SignUp
+    component: SignUp,
   },
   {
     path: "/login",
     name: "Login",
-    component: Login
+    component: Login,
   },
   {
     path: "/teacher-portal",
@@ -51,6 +52,12 @@ const routes = [
     path: "/student-portal",
     name: "Student Portal",
     component: StudentPortal,
+  },
+  {
+    path: "/create-survey",
+    name: "Create Survey",
+    component: CreateSurvey,
+  },
     meta: {
       authRequired: true,
     }
