@@ -40,8 +40,8 @@
                 v-model="password"
               />
             </v-text-field>
-            <v-btn block color="primary" elevation="10" large>
-              <button type="submit">Log In</button>
+            <v-btn block color="green" elevation="10" large>
+              <button v-on:click="login" type="submit">Log In</button>
             </v-btn>
             &nbsp;
             <hr />
@@ -93,7 +93,7 @@ export default {
         });
     },
     signup() {
-      this.$router.push("/");
+      this.$router.push("/signup");
     },
   },
 };

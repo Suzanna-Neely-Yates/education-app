@@ -30,7 +30,7 @@ const routes = [
     component: About,
   },
   {
-    path: "/",
+    path: "/signup",
     name: "Sign Up",
     component: SignUp
   },
@@ -68,7 +68,7 @@ router.beforeEach((to, from, next) => {
     } else {
       alert('You must be logged in to see this page');
       next({
-        path: '/',
+        path: '/login',
       });
     }
   } else {
