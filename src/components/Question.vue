@@ -53,7 +53,7 @@ import { db } from "../firebase";
 
 export default {
   name: "Question",
-  props: { question: Object, surveyId: Number },
+  props: { question: Object, surveyId: Number, userId: Number },
   data: () => ({ checked: [], response: "" }),
   methods: {
     submitResponse() {
