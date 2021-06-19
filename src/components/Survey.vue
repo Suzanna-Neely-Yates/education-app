@@ -20,6 +20,7 @@
                   ref="question"
                   :question="question"
                   :surveyId="survey.id"
+                  :userId="userId"
                 /><br />
               </div>
             </div>
@@ -37,7 +38,7 @@ import Question from "../components/Question";
 
 export default {
   name: "Survey",
-
+  props: { userId: Number },
   components: {
     Question,
   },
@@ -51,7 +52,6 @@ export default {
     return {
       surveys: [],
       questions: [],
-      surveyMap: new Map(),
     };
   },
   created() {
