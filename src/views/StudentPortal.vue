@@ -1,11 +1,30 @@
 <template>
   <div class="studentportal">
     <h1>This the student portal page</h1>
-    <v-form>
-      <v-container>
-        <!--Text field -->
-        <v-text-field label="Answer" filled outlined></v-text-field>
-      </v-container>
-    </v-form>
+    <button v-on:click="logout">Log Out</button>
   </div>
 </template>
+
+<script>
+import firebase from "firebase";
+
+export default {
+  name: "StudentPortal",
+
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          console.log('Successfully logged out');
+          this.$router.push('/');
+        })
+        .catch(error => {
+          alert(error.message);
+          this.$router.push('/');
+        });
+    },
+  }
+};
+</script>

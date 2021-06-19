@@ -9,7 +9,7 @@
           <br />Please be honest and know only your teacher has access to the
           responses.
         </p>
-        <div v-for="survey in surveys" :key="survey">
+        <div v-for="survey in surveys" :key="survey.id">
           {{ survey.title }}
         </div>
       </v-col>
