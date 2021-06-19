@@ -9,7 +9,6 @@
           <br />Please be honest and know only your teacher has access to the
           responses.
         </p>
-
         <div v-for="survey in surveys" :key="survey">
           <h2 class="display-2 font-weight-bold mb-3">{{ survey.title }}</h2>
 
@@ -26,7 +25,7 @@
             </div>
           </div>
           <v-btn @click="submit(survey.id)">Submit</v-btn>
-        </div>
+         </div>
       </v-col>
     </v-row>
   </v-container>
