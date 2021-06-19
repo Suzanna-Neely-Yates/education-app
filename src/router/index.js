@@ -7,6 +7,7 @@ import Login from "../views/Login.vue";
 import TeacherPortal from "../views/TeacherPortal.vue";
 import StudentPortal from "../views/StudentPortal.vue";
 import firebase from "firebase";
+import CreateSurvey from "../views/CreateSurvey.vue";
 
 Vue.use(VueRouter);
 
@@ -17,7 +18,7 @@ const routes = [
     component: Home,
     meta: {
       authRequired: true,
-    }
+    },
   },
   {
     path: "/about",
@@ -32,12 +33,12 @@ const routes = [
   {
     path: "/signup",
     name: "Sign Up",
-    component: SignUp
+    component: SignUp,
   },
   {
     path: "/login",
     name: "Login",
-    component: Login
+    component: Login,
   },
   {
     path: "/teacher-portal",
@@ -45,7 +46,7 @@ const routes = [
     component: TeacherPortal,
     meta: {
       authRequired: true,
-    }
+    },
   },
   {
     path: "/student-portal",
@@ -53,8 +54,13 @@ const routes = [
     component: StudentPortal,
     meta: {
       authRequired: true,
-    }
-  }
+    },
+  },
+  {
+    path: "/create-survey",
+    name: "Create Survey",
+    component: CreateSurvey,
+  },
 ];
 
 const router = new VueRouter({
@@ -62,13 +68,13 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.authRequired)) {
+  if (to.matched.some((record) => record.meta.authRequired)) {
     if (firebase.auth().currentUser) {
       next();
     } else {
-      alert('You must be logged in to see this page');
+      alert("You must be logged in to see this page");
       next({
-        path: '/login',
+        path: "/login",
       });
     }
   } else {
