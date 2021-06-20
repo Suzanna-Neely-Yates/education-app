@@ -22,13 +22,9 @@
       </div>
 
       <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-      </v-btn>
+      <button v-if="$route.name != 'Login'" v-on:click="logout" :userId="uid">
+        Log Out
+      </button>
     </v-app-bar>
 
     <v-main style="background-color: powderblue">
@@ -38,11 +34,27 @@
 </template>
 
 <script>
+import firebase from "firebase";
 export default {
   name: "App",
 
   data: () => ({
     //
   }),
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          console.log("Successfully logged out");
+          this.$router.push("/login");
+        })
+        .catch((error) => {
+          alert(error.message);
+          this.$router.push("/login");
+        });
+    },
+  },
 };
 </script>

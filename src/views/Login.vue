@@ -79,7 +79,7 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
           console.log("Sucessfully logged in");
-          this.$router.push("/");
+          this.$router.push("/student-portal");
         })
         .catch((error) => {
           if (error.code === "auth/user-not-found") {

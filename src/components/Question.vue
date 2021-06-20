@@ -4,6 +4,7 @@
       <v-row class="ma-2">
         <v-col cols="12" sm="4">
           {{ question.question }}
+          <v-icon @click="speak">mdi-volume-high</v-icon>
         </v-col>
         <div v-if="question.type == 'scale'">
           <v-col cols="12" sm="12">
@@ -116,9 +117,9 @@
 </template>
 <script>
 import { db } from "../firebase";
-
 export default {
   name: "Question",
+  components: {},
   props: { question: Object, surveyId: Number, userId: Number },
   data: () => ({ checked: [], response: "" }),
   methods: {
@@ -135,6 +136,19 @@ export default {
         survey_id: this.surveyId,
         date_submitted: new Date(),
       });
+    },
+    speak() {
+      var msg = new SpeechSynthesisUtterance();
+      var voices = window.speechSynthesis.getVoices();
+      msg.voice = voices[10];
+      msg.voiceURI = "native";
+      msg.volume = 1;
+      msg.rate = 1;
+      msg.pitch = 0.8;
+      msg.text = "are you happy today";
+      msg.lang = "en-US";
+      speechSynthesis.speak(msg);
+      console.log("spoken");
     },
   },
 };
