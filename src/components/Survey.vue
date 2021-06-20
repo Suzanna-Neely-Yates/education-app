@@ -7,7 +7,6 @@
         <center>
           <v-sheet
             color="grey darken-3"
-            elevation="15"
             height="50"
             outlined
             rounded

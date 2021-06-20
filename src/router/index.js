@@ -45,17 +45,17 @@ const routes = [
     path: "/teacher-portal",
     name: "Teacher Portal",
     component: TeacherPortal,
-    meta: {
-      authRequired: true,
-    },
+    // meta: {
+    //   authRequired: true,
+    // },
   },
   {
     path: "/student-portal",
     name: "Student Portal",
     component: StudentPortal,
-    meta: {
-      authRequired: true,
-    },
+    // meta: {
+    //   authRequired: true,
+    // },
   },
   {
     path: "/create-survey",
