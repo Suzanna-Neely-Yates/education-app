@@ -17,12 +17,12 @@ export default {
         .auth()
         .signOut()
         .then(() => {
+          this.$router.push("/login");
           console.log("Successfully logged out");
-          this.$router.push("/");
         })
         .catch((error) => {
           alert(error.message);
-          this.$router.push("/");
+          this.$router.push("/login");
         });
     },
   },

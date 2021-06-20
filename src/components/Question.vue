@@ -64,6 +64,7 @@ export default {
 
       db.collection("responses").add({
         qid: this.question.id,
+        userId: this.userId,
         response: value,
         survey_id: this.surveyId,
         date_submitted: new Date(),

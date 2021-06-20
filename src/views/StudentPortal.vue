@@ -1,8 +1,8 @@
 <template>
   <div class="studentportal">
     <h1>This the student portal page</h1>
-    <button v-on:click="logout">Log Out</button>
-    <Survey />
+    <button v-on:click="logout" :userId="uid">Log Out</button>
+    <Survey :userId="uid" />
   </div>
 </template>
 
@@ -15,6 +15,10 @@ export default {
 
   components: {
     Survey,
+  },
+
+  data() {
+    return { uid: firebase.auth().currentUser.uid };
   },
 
   methods: {
