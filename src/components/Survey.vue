@@ -2,17 +2,28 @@
   <v-container>
     <v-row class="text-center">
       <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">Education App</h1>
-
-        <p class="subheading font-weight-regular">
-          We care about you and want to know how you are doing.
-          <br />Please be honest and know only your teacher has access to the
-          responses.
-        </p>
-
+        <h1 class="display-2 font-weight-bold mb-3">Hello!</h1>
+        &nbsp;
+        <center>
+          <v-sheet
+            color="grey darken-3"
+            elevation="15"
+            height="50"
+            outlined
+            rounded
+            shaped
+            width="550"
+          >
+            <p class="subheading font-weight-regular" style="color: white">
+              We care about you and want to know how you are doing.
+              <br />Please be honest and know only your teacher has access to
+              the responses.
+            </p>
+          </v-sheet>
+        </center>
+        &nbsp;
         <div v-for="survey in surveys" :key="survey">
           <h2 class="display-2 font-weight-bold mb-3">{{ survey.title }}</h2>
-
           <div class="ma-5" v-for="question in questions" :key="question">
             <div v-if="question.survey_id == survey.id">
               <div>

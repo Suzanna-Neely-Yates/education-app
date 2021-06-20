@@ -48,6 +48,9 @@
               placeholder="Enter here"
               filled
               v-model="password"
+              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+              :type="show1 ? 'text' : 'password'"
+              @click:append="show1 = !show1"
             >
             </v-text-field>
             <v-btn block color="green" elevation="10" large>

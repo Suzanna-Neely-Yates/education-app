@@ -9,36 +9,101 @@
           <div>
             <v-row align="center" justify="center">
               <v-radio-group row justify="center" v-model="response">
-                <v-radio label="-3" :value="-3"></v-radio>
-                <v-radio label="-2" :value="-2"></v-radio>
-                <v-radio label="-1" :value="-1"></v-radio>
-                <v-radio label="0" :value="0"></v-radio>
-                <v-radio label="1" :value="1"></v-radio>
-                <v-radio label="2" :value="2"></v-radio>
-                <v-radio label="3" :value="3"></v-radio> </v-radio-group
+                <v-radio label="Strongly Disagree" :value="-3"></v-radio>
+                <v-radio label="Disagree" :value="-2"></v-radio>
+                <v-radio label="Sort of Disagree" :value="-1"></v-radio>
+                <v-radio label="Neural" :value="0"></v-radio>
+                <v-radio label="Sort of Agree" :value="1"></v-radio>
+                <v-radio label="Agree" :value="2"></v-radio>
+                <v-radio
+                  label="Strongly Agree"
+                  :value="3"
+                ></v-radio> </v-radio-group
             ></v-row>
           </div>
         </div>
         <div v-if="question.type == 'checkboxes'">
           <v-row class="light--text">
-            <v-checkbox
-              class="pr-6"
-              v-model="checked"
-              label="A"
-              value="a"
-            ></v-checkbox>
-            <v-checkbox
-              class="pr-6"
-              v-model="checked"
-              label="B"
-              value="b"
-            ></v-checkbox>
-            <v-checkbox
-              class="pr-6"
-              v-model="checked"
-              label="C"
-              value="c"
-            ></v-checkbox>
+            <center>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Angry"
+                value="a"
+              ></v-checkbox>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Bored"
+                value="b"
+              ></v-checkbox>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Confident"
+                value="c"
+              ></v-checkbox>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Confused"
+                value="d"
+              ></v-checkbox>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Disappointed"
+                value="d"
+              ></v-checkbox>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Guilty"
+                value="e"
+              ></v-checkbox>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Happy"
+                value="f"
+              ></v-checkbox>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Hurt"
+                value="g"
+              ></v-checkbox>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Excited"
+                value="h"
+              ></v-checkbox>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Nervous"
+                value="i"
+              ></v-checkbox>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Sad"
+                value="j"
+              ></v-checkbox>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Scared"
+                value="k"
+              ></v-checkbox>
+              <v-checkbox
+                class="pr-6"
+                v-model="checked"
+                label="Tired"
+                value="d"
+              ></v-checkbox>
+            </center>
           </v-row>
         </div>
         <div v-if="question.type == 'written'">
