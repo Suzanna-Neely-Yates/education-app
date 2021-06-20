@@ -35,7 +35,6 @@
   </div>
 </template>
 <script>
-// import CurrentStudents from "../components/CurrentStudents";
 import { db } from "../firebase";
 
 export default {
