@@ -2,15 +2,11 @@
   <v-container>
     <v-row class="text-center">
       <v-col class="mb-4">
-        <!-- <h1 class="display-2 font-weight-bold mb-3">Education App</h1> -->
         <div v-for="response in responses" :key="response.qid">
           {{ response.response }}
           {{ response.total_value }}
         </div>
-        <!-- <div v-for="survey_id in allSurveyResponses" :key="survey_id">
-          {{ allSurveyResponses.survey_id }}
-        </div> -->
-        {{ allSurveyResponses }}
+        {{ allSurveys }}
       </v-col>
     </v-row>
   </v-container>
@@ -24,10 +20,9 @@ export default {
 
   data() {
     return {
-      surveys: [],
-      responses: [],
+      userResponses: [],
       surveyIDs: [],
-      allSurveyResponses: {},
+      allSurveys: {},
       surveyValues: {},
     };
   },
@@ -35,44 +30,51 @@ export default {
   firestore() {
     return {
         responses: [],
-        surveys: []
+        surveyIDs: []
     }
   },
   
-
   created() {
-    db.collection("responses").where("uid", "==", auth.currentUser.uid)
-    .get().then(snapshot => {
-      snapshot.forEach(docu => {
-        this.responses.push(docu.data());
-      })
-    })
-    this.getSurveys();
-    console.log("this is all survey responses", this.allSurveyResponses);
+    this.getUserResponses();
+    console.log(this.responses)
+    this.getSurveyIDs();
+    // this.aggSurveyResp();
     // this.calculateSurveyValues();
     // console.log("values", this.surveyValues)
   },
 
   methods: {
-    aggregateSurveyResponses() {
-      // console.log(survey_id);
-      // let surveyResponses = [];
-      this.responses.forEach((response) => {
-        console.log(response)
-        // if (response.survey_id == ) {
-        //   surveyResponses.push(response);
-        // }
+    getUserResponses() {
+      const query  = db.collection("responses").where("uid", "==", auth.currentUser.uid);
+      query.onSnapshot(querySnapshot => {
+        querySnapshot.forEach((docu) => {
+          this.responses.push(docu.data());
+        });
+      }, err => {
+        console.log(err)
       });
-      // return surveyResponses
     },
-    getSurveys() {
+
+    aggSurveyResp() {
+      // for (const response in this.responses) {
+        // console.log("hello")
+      // this.responses.forEach((response) => {
+        // if (this.surveyIDs.includes(response.survey_id)) {
+        //   // let currResponses = this.allSurveys[response.survey_id];
+        //   console.log(response.response);
+        //   // this.allSurveys[response.survey_id].push(response);
+        // }
+      // });
+      // console.log(this.allSurveys)
+    },
+
+    getSurveyIDs() {
       db.collection("surveys")
         .get().then((snapshot) => {
           snapshot.forEach((docu) => {
-            console.log(docu.id);
-            this.allSurveyResponses[docu.id] = this.aggregateSurveyResponses(docu.id);
+            this.surveyIDs.push(docu.id);
           });
-      });
+        });
     }
   },
 

@@ -13,7 +13,6 @@ const firebaseConfig = {
   messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.VUE_APP_FIREBASE_APP_ID,
 };
-console.log("key", process.env.VUE_APP_FIREBASE_API_KEY);
 firebase.initializeApp(firebaseConfig);
 
 // export utils/refs
