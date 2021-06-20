@@ -90,7 +90,6 @@ export default {
           console.error(error.message);
         });
     },
-<<<<<<< HEAD
     methods: {
         login() {
             auth.signInWithEmailAndPassword(this.email, this.password)
@@ -112,12 +111,8 @@ export default {
               });
         },
         signup() {
-          this.$router.push("/")
+          this.$router.push("/signup")
         }
-=======
-    signup() {
-      this.$router.push("/signup");
->>>>>>> main
     },
   },
 };
