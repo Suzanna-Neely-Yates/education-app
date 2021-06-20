@@ -2,25 +2,26 @@
   <v-row align="center" justify="center">
     <v-card width="100vh" outlined>
       <v-row class="ma-2">
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="4">
           {{ question.question }}
         </v-col>
         <div v-if="question.type == 'scale'">
-          <div>
-            <v-row align="center" justify="center">
-              <v-radio-group row justify="center" v-model="response">
-                <v-radio label="Strongly Disagree" :value="-3"></v-radio>
-                <v-radio label="Disagree" :value="-2"></v-radio>
-                <v-radio label="Sort of Disagree" :value="-1"></v-radio>
-                <v-radio label="Neural" :value="0"></v-radio>
-                <v-radio label="Sort of Agree" :value="1"></v-radio>
-                <v-radio label="Agree" :value="2"></v-radio>
-                <v-radio
-                  label="Strongly Agree"
-                  :value="3"
-                ></v-radio> </v-radio-group
-            ></v-row>
-          </div>
+          <v-col cols="12" sm="12">
+            <v-radio-group
+              row
+              align="center"
+              justify="center"
+              v-model="response"
+            >
+              <v-radio label="-3" :value="-3"></v-radio>
+              <v-radio label="-2" :value="-2"></v-radio>
+              <v-radio label="-1" :value="-1"></v-radio>
+              <v-radio label="0" :value="0"></v-radio>
+              <v-radio label="1" :value="1"></v-radio>
+              <v-radio label="2" :value="2"></v-radio>
+              <v-radio label="3" :value="3"></v-radio>
+            </v-radio-group>
+          </v-col>
         </div>
         <div v-if="question.type == 'checkboxes'">
           <v-row class="light--text">

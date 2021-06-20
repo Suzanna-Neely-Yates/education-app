@@ -8,6 +8,7 @@ import TeacherPortal from "../views/TeacherPortal.vue";
 import StudentPortal from "../views/StudentPortal.vue";
 import firebase from "firebase";
 import CreateSurvey from "../views/CreateSurvey.vue";
+import Results from "../views/Results.vue";
 
 Vue.use(VueRouter);
 
@@ -60,6 +61,11 @@ const routes = [
     path: "/create-survey",
     name: "Create Survey",
     component: CreateSurvey,
+  },
+  {
+    path: "/results",
+    name: "Results",
+    component: Results,
   },
 ];
 
