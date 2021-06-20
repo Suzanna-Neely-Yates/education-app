@@ -73,9 +73,10 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then(() => {
+        .then((user) => {
           console.log("Sucessfully logged in");
-          this.$router.push("/home");
+          if (user.is_admin) this.$router.push("/teacher-portal");
+          else this.$router.push("/student-portal");
         })
         .catch((error) => {
           if (error.code === "auth/user-not-found") {
