@@ -1,4 +1,3 @@
-
 <template>
   <div class="login" style="background-color: powderblue">
     <form @submit.prevent="login">
@@ -26,19 +25,19 @@
             height="370"
             width="500"
           >
-            <v-text-field label="Email" placeholder="Enter here" filled>
-              <input
-                type="email"
-                placeholder="Email address..."
-                v-model="email"
-              />
+            <v-text-field
+              label="Email"
+              placeholder="Enter here"
+              filled
+              v-model="email"
+            >
             </v-text-field>
-            <v-text-field label="Password" placeholder="Enter here" filled>
-              <input
-                type="password"
-                placeholder="password..."
-                v-model="password"
-              />
+            <v-text-field
+              label="Password"
+              placeholder="Enter here"
+              filled
+              v-model="password"
+            >
             </v-text-field>
             <v-btn block color="green" elevation="10" large>
               <button v-on:click="login" type="submit">Log In</button>
@@ -56,7 +55,6 @@
     </form>
   </div>
 </template>
-
 
 <script>
 import firebase from "firebase";

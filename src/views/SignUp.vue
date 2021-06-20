@@ -15,40 +15,40 @@
             height="670"
             width="500"
           >
-            <v-text-field label="First Name" placeholder="Enter here" filled>
-              <input
-                type="text"
-                placeholder="First Name..."
-                v-model="first_name"
-              />
+            <v-text-field
+              label="First Name"
+              placeholder="Enter here"
+              filled
+              v-model="first_name"
+            >
             </v-text-field>
-            <v-text-field label="Last Name" placeholder="Enter here" filled>
-              <input
-                type="text"
-                placeholder="Last Name..."
-                v-model="last_name"
-              />
+            <v-text-field
+              label="Last Name"
+              placeholder="Enter here"
+              filled
+              v-model="last_name"
+            >
             </v-text-field>
-            <v-text-field label="Admin Code" placeholder="Enter here" filled>
-              <input
-                type="text"
-                placeholder="Admin code"
-                v-model="admin_code"
-              />
+            <v-text-field
+              label="Admin Code"
+              placeholder="Enter here"
+              filled
+              v-model="admin_code"
+            >
             </v-text-field>
-            <v-text-field label="Email" placeholder="Enter here" filled>
-              <input
-                type="email"
-                placeholder="Email address..."
-                v-model="email"
-              />
+            <v-text-field
+              label="Email"
+              placeholder="Enter here"
+              filled
+              v-model="email"
+            >
             </v-text-field>
-            <v-text-field label="Password" placeholder="Enter here" filled>
-              <input
-                type="password"
-                placeholder="password..."
-                v-model="password"
-              />
+            <v-text-field
+              label="Password"
+              placeholder="Enter here"
+              filled
+              v-model="password"
+            >
             </v-text-field>
             <v-btn block color="green" elevation="10" large>
               <button onclick="DisplayMessage()" type="submit">Sign Up</button>
