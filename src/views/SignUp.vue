@@ -67,8 +67,7 @@
 </template>
 
 <script>
-import firebase from "firebase";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
 
 export default {
   name: "SignUp",
@@ -84,8 +83,7 @@ export default {
   },
   methods: {
     signup() {
-      firebase
-        .auth()
+      auth
         .createUserWithEmailAndPassword(this.email, this.password)
         .then((userCreds) => {
           if (this.admin_code == "admincode") {

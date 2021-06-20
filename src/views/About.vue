@@ -7,23 +7,22 @@
 
 
 <script>
-import firebase from "firebase";
+import { auth } from "../firebase";
 
 export default {
   name: "About",
 
   methods: {
     logout() {
-      firebase
-        .auth()
+      auth
         .signOut()
         .then(() => {
-          console.log('Successfully logged out');
-          this.$router.push('/');
+          console.log("Successfully logged out");
+          this.$router.push("/");
         })
         .catch(error => {
           alert(error.message);
-          this.$router.push('/');
+          this.$router.push("/");
         });
     },
   }

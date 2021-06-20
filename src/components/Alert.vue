@@ -41,7 +41,7 @@ export default {
   
 
   created() {
-    db.collection("responses").where('uid', '==', auth.currentUser.uid)
+    db.collection("responses").where("uid", "==", auth.currentUser.uid)
     .get().then(snapshot => {
       snapshot.forEach(docu => {
         this.responses.push(docu.data());
@@ -76,10 +76,5 @@ export default {
     }
   },
 
-//   alert() {
-//     return {
-      
-//     };
-//   },
 };
 </script>

@@ -57,8 +57,7 @@
 </template>
 
 <script>
-import firebase from "firebase";
-// import { db } from "../firebase";
+import { auth } from "../firebase";
 
 export default {
   name: "LogIn",
@@ -70,8 +69,7 @@ export default {
   },
   methods: {
     login() {
-      firebase
-        .auth()
+      auth
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
           console.log("Sucessfully logged in");
@@ -98,14 +96,14 @@ export default {
                 this.$router.push("/home");
               })
               .catch((error) => {
-                if (error.code === 'auth/user-not-found') {
+                if (error.code === "auth/user-not-found") {
                   console.log("There isn't account under that email.");
                 }
-                if (error.code === 'auth/wrong-password') {
+                if (error.code === "auth/wrong-password") {
                   console.log('Incorrect password, try again.');
                 }
-                if (error.code === 'auth/invalid-email') {
-                  console.log('That email address is invalid.');
+                if (error.code === "auth/invalid-email") {
+                  console.log("That email address is invalid.");
                 }
                 console.error(error.message);
               });

@@ -6,7 +6,7 @@ import SignUp from "../views/SignUp.vue";
 import Login from "../views/Login.vue";
 import TeacherPortal from "../views/TeacherPortal.vue";
 import StudentPortal from "../views/StudentPortal.vue";
-// import firebase from "firebase";
+import { auth } from "../firebase";
 
 Vue.use(VueRouter);
 
@@ -63,12 +63,12 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.authRequired)) {
-    if (firebase.auth().currentUser) {
+    if (auth.currentUser) {
       next();
     } else {
-      alert('You must be logged in to see this page');
+      alert("You must be logged in to see this page");
       next({
-        path: '/login',
+        path: "/login",
       });
     }
   } else {

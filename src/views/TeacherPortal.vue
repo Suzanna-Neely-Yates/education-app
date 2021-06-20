@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import firebase from "firebase";
+import { auth } from "../firebase";
 import Alert from "../components/Alert.vue";
 
 export default {
@@ -17,16 +17,15 @@ export default {
   },
   methods: {
     logout() {
-      firebase
-        .auth()
+      auth
         .signOut()
         .then(() => {
-          console.log('Successfully logged out');
-          this.$router.push('/');
+          console.log("Successfully logged out");
+          this.$router.push("/");
         })
         .catch(error => {
           alert(error.message);
-          this.$router.push('/');
+          this.$router.push("/");
         });
     },
   }
