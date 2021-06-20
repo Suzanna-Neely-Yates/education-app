@@ -1,20 +1,15 @@
 <template>
-  <div> HOME 
-    <Survey />
+  <div>
+    HOME
     <button v-on:click="logout">Log Out</button>
   </div>
 </template>
 
 <script>
-import Survey from "../components/Survey";
 import firebase from "firebase";
 
 export default {
   name: "Home",
-
-  components: {
-    Survey,
-  },
 
   methods: {
     logout() {
@@ -22,14 +17,14 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          console.log('Successfully logged out');
-          this.$router.push('/');
+          this.$router.push("/login");
+          console.log("Successfully logged out");
         })
-        .catch(error => {
+        .catch((error) => {
           alert(error.message);
-          this.$router.push('/');
+          this.$router.push("/login");
         });
     },
-  }
+  },
 };
 </script>
