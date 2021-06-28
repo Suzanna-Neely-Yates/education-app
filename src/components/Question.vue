@@ -4,7 +4,7 @@
       <v-row class="ma-2">
         <v-col cols="12" sm="4">
           {{ question.question }}
-          <v-icon @click="speak">mdi-volume-high</v-icon>
+          <v-icon @click="speak(question.question)">mdi-volume-high</v-icon>
         </v-col>
         <div v-if="question.type == 'scale'">
           <v-col cols="12" sm="12">
@@ -27,84 +27,19 @@
         <div v-if="question.type == 'checkboxes'">
           <v-row class="light--text">
             <center>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Angry"
-                value="a"
-              ></v-checkbox>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Bored"
-                value="b"
-              ></v-checkbox>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Confident"
-                value="c"
-              ></v-checkbox>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Confused"
-                value="d"
-              ></v-checkbox>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Disappointed"
-                value="d"
-              ></v-checkbox>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Guilty"
-                value="e"
-              ></v-checkbox>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Happy"
-                value="f"
-              ></v-checkbox>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Hurt"
-                value="g"
-              ></v-checkbox>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Excited"
-                value="h"
-              ></v-checkbox>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Nervous"
-                value="i"
-              ></v-checkbox>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Sad"
-                value="j"
-              ></v-checkbox>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Scared"
-                value="k"
-              ></v-checkbox>
-              <v-checkbox
-                class="pr-6"
-                v-model="checked"
-                label="Tired"
-                value="d"
-              ></v-checkbox>
+              <v-col>
+                <div v-for="word in feelings" :key="word">
+                  <v-row>
+                    <v-checkbox
+                      class="pr-6"
+                      v-model="checked"
+                      :label="word"
+                      :value="word"
+                    ></v-checkbox>
+                    <v-icon @click="speak(word)">mdi-volume-high</v-icon>
+                  </v-row>
+                </div></v-col
+              >
             </center>
           </v-row>
         </div>
@@ -121,7 +56,25 @@ export default {
   name: "Question",
   components: {},
   props: { question: Object, surveyId: Number, userId: Number },
-  data: () => ({ checked: [], response: "" }),
+  data: () => ({
+    checked: [],
+    response: "",
+    feelings: [
+      "Angry",
+      "Bored",
+      "Confident",
+      "Confused",
+      "Disappointed",
+      "Guilty",
+      "Happy",
+      "Hurt",
+      "Excited",
+      "Nervous",
+      "Sad",
+      "Scared",
+      "Tired",
+    ],
+  }),
   methods: {
     submitResponse() {
       let value =
@@ -137,18 +90,16 @@ export default {
         date_submitted: new Date(),
       });
     },
-    speak() {
+    speak(message) {
       var msg = new SpeechSynthesisUtterance();
       var voices = window.speechSynthesis.getVoices();
-      msg.voice = voices[10];
+      msg.voice = voices[1];
       msg.voiceURI = "native";
       msg.volume = 1;
       msg.rate = 1;
-      msg.pitch = 0.8;
-      msg.text = "are you happy today";
+      msg.text = message;
       msg.lang = "en-US";
       speechSynthesis.speak(msg);
-      console.log("spoken");
     },
   },
 };
