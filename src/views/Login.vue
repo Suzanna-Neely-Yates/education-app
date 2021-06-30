@@ -22,8 +22,6 @@
             dark
             elevation="10"
             rounded
-            height="370"
-            width="500"
           >
             <v-text-field
               label="Email"
