@@ -2,7 +2,7 @@
   <div style="background-color: powderblue">
     <form @submit.prevent="signup">
       <center>
-        <v-container>
+        <v-container class="px-10 mx-auto">
           &nbsp;
           <h2>Sign Up</h2>
           &nbsp;
